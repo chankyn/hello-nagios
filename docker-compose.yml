@@ -2,8 +2,8 @@ version: '3'
 services:
   nagios4:
     environment:
-      NAGIOSADMIN_USER: "admin"
-      NAGIOSADMIN_PASS: "nagiosadmin"
+      NAGIOSADMIN_USER: "nagiosadmin"
+      NAGIOSADMIN_PASS: "nagios"
       TZ: "Europe/Madrid"
     image: manios/nagios:latest
     ports:
@@ -13,3 +13,7 @@ services:
       - "./var:/opt/nagios/var/"
       - "./ssmtp.conf:/etc/ssmtp/ssmtp.conf"
       - "./custom-plugins:/opt/Custom-Nagios-Plugins"
+  mailhog:
+    image: mailhog/mailhog
+    ports: 
+      - "9025:8025"
